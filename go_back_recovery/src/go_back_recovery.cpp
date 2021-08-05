@@ -57,24 +57,24 @@ namespace go_back_recovery {
    ROS_WARN("center warning!!");
    cmd_vel.linear.x = 0.0;
    cmd_vel.linear.y = 0.0;
-   cmd_vel.linear.z = 0.5;
+   cmd_vel.angular.z = 0.5;
   }
   if(left < 0.4){
-   ROS_WARN("center warning!!");
+   ROS_WARN("left warning!!");
    cmd_vel.linear.x = 0.0;
    cmd_vel.linear.y = 0.0;
-   cmd_vel.linear.z = -0.5;
+   cmd_vel.angular.z = -0.5;
   }
   if(right < 0.4){
-   ROS_WARN("center warning!!");
+   ROS_WARN("right warning!!");
    cmd_vel.linear.x = 0.0;
    cmd_vel.linear.y = 0.0;
-   cmd_vel.linear.z = 0.5;
+   cmd_vel.angular.z = 0.5;
   }
   if(center >= 0.5 && left >=0.4 && right >=0.4){
    cmd_vel.linear.x = -0.2;
    cmd_vel.linear.y = 0.0;
-   cmd_vel.linear.z = 0.0;
+   cmd_vel.angular.z = 0.0;
   }
 
   vel_pub.publish(cmd_vel);
