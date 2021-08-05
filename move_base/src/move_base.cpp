@@ -1123,7 +1123,7 @@ namespace move_base {
       recovery_behaviors_.push_back(backup);
       
       
-      //next, we'll load a recovery behavior to rotate in place
+      /*next, we'll load a recovery behavior to rotate in place
       boost::shared_ptr<nav_core::RecoveryBehavior> rotate(recovery_loader_.createInstance("rotate_recovery/RotateRecovery"));
       if(clearing_rotation_allowed_){
         rotate->initialize("rotate_recovery", &tf_, planner_costmap_ros_, controller_costmap_ros_);
@@ -1141,7 +1141,7 @@ namespace move_base {
       if(clearing_rotation_allowed_){
         recovery_behaviors_.push_back(rotate);
         recovery_behavior_names_.push_back("rotate_recovery");
-      }
+      }*/
     }
     catch(pluginlib::PluginlibException& ex){
       ROS_FATAL("Failed to load a plugin. This should not happen on default recovery behaviors. Error: %s", ex.what());
