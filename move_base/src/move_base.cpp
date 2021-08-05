@@ -1115,7 +1115,14 @@ namespace move_base {
       cons_clear->initialize("conservative_reset", &tf_, planner_costmap_ros_, controller_costmap_ros_);
       recovery_behavior_names_.push_back("conservative_reset");
       recovery_behaviors_.push_back(cons_clear);
-
+      
+      //next, we'll load a recovery behavior to go back  
+      boost::shared_ptr<nav_core::RecoveryBehavior> backup(recovery_loader_.createInstance("go_back_recovery/GoBackRecovery"));
+      backup->initialize("go_back_recovery", &tf_, planner_costmap_ros_, controller_costmap_ros_);
+      recovery_behavior_names_.push_back("go_back_recovery");
+      recovery_behaviors_.push_back(backup);
+      
+      
       //next, we'll load a recovery behavior to rotate in place
       boost::shared_ptr<nav_core::RecoveryBehavior> rotate(recovery_loader_.createInstance("rotate_recovery/RotateRecovery"));
       if(clearing_rotation_allowed_){
