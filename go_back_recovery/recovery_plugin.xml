@@ -1,0 +1,7 @@
+<library path="lib/libgo_back_recovery">
+  <class name="go_back_recovery/GoBackRecovery" type="go_back_recovery::GoBackRecovery" base_class_type="nav_core::RecoveryBehavior">
+    <description>
+       A recovery behavior that goes back along the wall
+    </description>
+  </class>
+</library>
