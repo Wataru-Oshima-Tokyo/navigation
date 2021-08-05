@@ -63,13 +63,13 @@ namespace go_back_recovery {
    ROS_WARN("left warning!!");
    cmd_vel.linear.x = 0.0;
    cmd_vel.linear.y = 0.0;
-   cmd_vel.angular.z = -0.5;
+   cmd_vel.angular.z = 0.2;
   }
   if(right < 0.4){
    ROS_WARN("right warning!!");
    cmd_vel.linear.x = 0.0;
    cmd_vel.linear.y = 0.0;
-   cmd_vel.angular.z = 0.5;
+   cmd_vel.angular.z = -0.2;
   }
   if(center >= 0.5 && left >=0.4 && right >=0.4){
    cmd_vel.linear.x = -0.2;
@@ -80,7 +80,7 @@ namespace go_back_recovery {
   vel_pub.publish(cmd_vel);
   ROS_INFO("sub_n: %d", sub_n);
   sub_n++;
-  if(sub_n >100) {
+  if(sub_n >30) {
       scan_sub.shutdown();
       sub_flag=0;
       return;
